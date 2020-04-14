@@ -1,0 +1,73 @@
+#header-nav .navbar-nav .nav-item .menu {
+    color: #fac564;
+}
+
+.menu {
+    padding: 7em 0;
+}
+
+th {
+    color: #fff;
+}
+
+:-webkit-any(article,aside,nav,section) form {
+    margin-block-end: 0;
+ }
+
+ td {
+     color: #ccc;
+ }
+.custom-select {
+     background: transparent;
+     padding: .375rem .7rem;
+     border-radius: 0;
+ }
+
+.order {
+     border-radius: 0;
+ }
+
+.order:hover {
+    background-color: #fac564;
+}
+
+.modal-content {
+    opacity: .95;
+    height: 80vh;
+}
+
+.modal-body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.topping {
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    color: #fff;
+    font-size: 16px;
+}
+
+.topping a {
+    display: block;
+    padding: .75rem;
+    color: #000;
+}
+
+.topping a:hover {
+    text-decoration: none;
+    background-color: #fac564;
+}
+
+.list-toppings {
+    list-style-type: none;
+    padding: 0;
+}
+
+#toppingDialog {
+    color: #000;
+}
+
+.modal-title {
+    color: 000;
+}

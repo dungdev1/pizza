@@ -1,0 +1,34 @@
+#header-nav .navbar-nav .nav-item .cart {
+    color: #fac564;
+}
+
+main {
+    margin-top: 90px;
+    min-height: 850px;
+}
+
+.cart-header {
+    height: 50px;
+}
+
+.cart-header h4 {
+    height: 100%;
+    padding: 15px 0;
+}
+
+.item {
+    border: 2px solid #fac564;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.list-items {
+    color: #fff;
+    font-size: 16px;
+}
+
+.payment-box {
+    color: #fff;
+    font-size: 16px;
+}

@@ -1,0 +1,64 @@
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #121618;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: gray;
+    background-image: url('/static/orders/images/bg_4.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.4;
+    color: #fff;
+    font-weight: 400;
+    font-family: "Josefin Sans", Arial, sans-serif;;
+}
+
+.footer-heading {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer {
+    font-size: 16px;
+    padding: 7em 0;
+    background-color: #121618;
+}
+
+.service ul {
+    padding-left: 20px;
+}
+
+.contact ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.contact i {
+    font-size: 18px;
+    padding-top: 2px;
+    color: white;
+}
+
+.social {
+    flex-basis: 30%;
+    background-color: #fac564;
+}
+
+.social-icon li{
+    display: inline;
+    margin-right: 20px;
+}
+
+.social-icon li a {
+    color: #fff;
+}

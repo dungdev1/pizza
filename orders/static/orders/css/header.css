@@ -1,0 +1,79 @@
+#header-navbar {
+    background: #121618 !important;
+    z-index: 3;
+    height: 90px;
+    padding: 8px 16px;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+}
+
+.navbar-brand span {
+    color: #fac564;
+}
+
+.navbar-brand {
+    font-family: "Josefin Sans", Arial, sans-serif;
+    line-height: 1;
+    font-size: 24px;
+}
+
+.navbar-brand small {
+    text-transform: uppercase;
+    font-size: 11px;
+    display: block;
+    text-align: center;
+    color: #fac564;
+    letter-spacing: 3px;
+}
+
+.navbar .container {
+    height: 100%;
+}
+
+.navbar-nav .nav-item .nav-link{
+    padding: 1.5rem 20px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #fac564;
+}
+
+.dropdown-menu {
+    background: #121618 !important;
+}
+
+.dropdown-menu .dropdown-item {
+    color: rgba(255,255,255);
+    font-size: 14px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #121618;
+    opacity: 0.7;
+}
+
+.cart {
+    width: 120px;
+}
+
+.item-cart-count {
+    color: rgb(74, 74, 74);
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgb(253, 216, 53);
+    border-radius: 2px;
+    padding: 0px 6px;
+}
+
+.navbar-collapse {
+    background-color: #121618;
+    opacity: .9;
+}

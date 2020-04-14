@@ -1,0 +1,172 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'orders/fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'orders/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'orders/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'orders/css/account.css' %}">
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header-navbar">
+        <div class="container">
+            <a href="{% url 'home' %}" class="navbar-brand">
+                <span class="flaticon-pizza-1 mr-1"></span>Pizza<br><small>Delicious</small>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="header-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'menu' %}" class="nav-link menu">Menu</a></li>
+                    {% block dropdown-account %} {% endblock %}
+                    <li class="nav-item">
+                        <a href="{% url 'cart' %}" class="nav-link cart">
+                            <div class="cart">
+                                <i class="fa fa-lg fa-shopping-cart" style="padding-right: 20px;"></i>
+                                <span>
+                                    Cart
+                                    <span class="item-cart-count">0</span>
+                                </span>                
+                            </div>
+                        </a>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+    <footer>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-5 mb-5">
+                    <h2 class="footer-heading">About us</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="social-footer mt-5">
+                        <ul class="social-icon">
+                            <li class="twitter">
+                                <a href=""><i class="fab fa-twitter fa-2x"></i></a>
+                            </li>
+                            <li class="facebook">
+                                <a href=""><i class="fab fa-facebook-f fa-2x"></i></a>
+                            </li>
+                            <li class="instagram">
+                                <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service col-lg-2 mb-5">
+                    <h2 class="footer-heading">Services</h2>
+                    <ul>
+                        <li>Cooked</li>
+                        <li>Deliver</li>
+                        <li>Quality Foods</li>
+                        <li>Mixed</li>
+                    </ul>
+                </div>
+                <div class="contact col-lg-5 mb-5">
+                    <h2 class="footer-heading">Have a question?</h2>
+                    <ul>
+                        <li class="d-flex mb-4">
+                            <i class="fas fa-map-marker"></i>
+                            <span class="text ml-3">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                        </li>
+                        <li class="d-flex mb-4">
+                            <i class="fas fa-phone-alt"></i>
+                            <span class="text ml-3">+2 392 3929 210</span>
+                        </li>
+                        <li class="d-flex mb-4">
+                            <i class="fas fa-envelope"></i>
+                            <span class="text ml-3">info@yourdomain.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        This template was designed by <a href="https://colorlib.com/">Colorlib</a>, rewritten by Dung Nguyen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="accountModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header py-2 border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="header row mb-3">
+                        <div class="signin col-6">Login</div>
+                        <div class="signup col-6">Registration</div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="form-account text-left">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script id="signin-form" type="text/x-handlebars-template">
+        <form id="loggin-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary login-submit">Submit</button>
+        </form>
+    </script>
+    <script id="signup-form" type="text/x-handlebars-template">
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input name="username" type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm</label>
+                <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary register-submit">Submit</button>
+        </form>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="module" src="{% static 'orders/js/base.js' %}"></script>
+    {% block js %}
+    {% endblock %}
+</body>
+</html>
