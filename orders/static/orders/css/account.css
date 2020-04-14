@@ -1,0 +1,38 @@
+.modal-body .header {
+    border-bottom: 1px solid rgb(244, 244, 244);
+    color: rgb(27, 168, 255);
+}
+
+.tab-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#accountModal .modal-body {
+    overflow: auto;
+    padding: 0;
+    
+}
+
+#accountModal .modal-content {
+    height: 80vh;
+}
+
+@media (max-width: 768px) {
+    #emailHelp {
+        display: none;
+    }
+    .tab-content {
+        width: 100%;
+    }
+
+    .dialog {
+        width: 70%;
+    }
+}
+
+@media (max-width: 496px) {
+    .dialog {
+        width: 80%;
+    }
+}

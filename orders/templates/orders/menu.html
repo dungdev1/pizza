@@ -1,0 +1,228 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block title %}
+Menu
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'orders/css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'orders/css/hero.css' %}">
+{% endblock %}
+
+{% block js %}
+<script type="module" src="{% static 'orders/js/menu.js' %}"></script>
+<script id="item-type-1" type="text/x-handlebars-template">
+    {% verbatim %}
+    <tr id="{{ item_id }}">
+        <td class="name">{{ name }}</td>
+        <td>{{ smSizePrice }}</td>
+        <td>{{ lgSizePrice }}</td>
+        <td class="size">
+            <select class="custom-select mr-sm-2" id="size">
+                <option value="small" selected>Small</option>
+                <option value="large">Large</option>
+            </select>                              
+        </td>
+        <td class="item-btn">
+            <button type="button" class="btn btn-outline-light order">Order</button>
+        </td>
+    </tr>
+    {% endverbatim %}
+</script>
+<script id="item-type-2" type="text/x-handlebars-template">
+    {% verbatim %}
+    <tr id="{{ item_id }}">
+        <td class="name">{{ name }}</td>
+        <td>{{ price }}</td>
+        <td class="item-btn">
+            <button type="button" class="btn btn-outline-light order">Order</button>
+        </td>
+    </tr>
+    {% endverbatim %}
+</script>
+
+<script id="item-type-3" type="text/x-handlebars-template">
+    {% verbatim %}
+    <li class="topping" id="{{ item_id }}">
+        <a href="##">{{ name }}</a>
+    </li>
+    {% endverbatim %}
+</script>
+{% endblock %}
+
+{% block dropdown-account %} 
+<li class="nav-item dropdown">
+    <a href="" id="dropdownAccountButton" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {% if logged_in %}
+            {{ user.username }}
+        {% else %}
+            Account
+        {% endif %}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownAccountButton">
+        {% if logged_in %}
+            <a href="{% url 'logout' %}" class="dropdown-item logout-item">Logout</a>
+        {% else %}
+            <a href="#accountModal" data-toggle="modal" class="dropdown-item signin-item">Login</a>
+            <a href="#accountModal" data-toggle="modal" class="dropdown-item signup-item">Registration</a>
+        {% endif %}
+    </div>
+</li>
+{% endblock %}
+
+{% block body %}
+
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="center text-center col-md-7 col-sm-12">
+                <h1 class="mb-4">Our Menu</h1>
+                <p>
+                    <a href="#menu" class="btn btn-outline-light p-3 px-xl-4 py-xl-3">View Menu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="heading-section">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center">
+                <h2 class="mb-4">Our menu</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                    the blind texts.</p>
+            </div>
+        </div>
+    </div>
+    <div class="menu-tables px-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h3>Regular Pizza</h3>
+                <table class="table regular-pizza">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Small</th>
+                            <th scope="col">Large</th>
+                            <th scope="col">Size</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h3>Sicilian Pizza</h3>
+                <table class="table sicilian-pizza">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Small</th>
+                            <th scope="col">Large</th>
+                            <th scope="col">Size</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h3>Sub</h3>
+                <table class="table sub">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Small</th>
+                            <th scope="col">Large</th>
+                            <th scope="col">Size</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h3>Pasta</h3>
+                <table class="table pasta">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <h3>Salads</h3>
+                <table class="table salad">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <h3>Dinner Platters</h3>
+                <table class="table dinner-platter">
+                    <thread>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Small</th>
+                            <th scope="col">Large</th>
+                            <th scope="col">Size</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thread>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="toppingDialog" tabindex="-1" role="dialog" aria-labelledby="toppingDialogLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="toppingDialogLabel">Toppings</h5>
+                <div class="d-flex ml-5">
+                    <div class="pr-2">Num toppings:</div>
+                    <div>
+                        <span class="num-topping-choosed">0</span><span> / </span><span class="num-topping"></span>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <ul class="list-toppings"></ul>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary border-0" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary border-0" id="add-cart-btn" data-dismiss="modal">Add to cart</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

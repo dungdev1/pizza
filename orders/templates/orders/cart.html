@@ -1,0 +1,138 @@
+{% extends "orders/base.html" %}
+{% load static %}
+
+{% block title %}
+    Cart
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'orders/css/cart.css' %}">
+
+{% endblock %}
+
+{% block js %}
+<script type="module" src="{% static 'orders/js/cart.js' %}"></script>
+<script id="pizza-template" type="text/x-handlebars-template">
+    {% verbatim %}
+        <div class="detail item">
+            <div class="row pb-2">
+                <div class="col-3 name">{{name}}</div>
+                <div class="col-2 size">Size: {{size}}</div>
+                <div class="col-2 unit-price">Unit Price: {{unitPrice}}</div>
+                <div class="col-2 amount">Amount: {{amount}}</div>
+                <div class="col-3 total-price">Total Price: {{totalPrice}}</div>
+            </div>
+            {{#if toppings }}
+                <div class="topping border-top border-dark">
+                    <ul class="pt-2">
+                        {{#each toppings }}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/if}}
+        </div>
+    {% endverbatim %}
+</script>
+<script id="sub-dinnerplatter" type="text/x-handlebars-template">
+    {% verbatim %}
+        <div class="detail item">
+            <div class="row">
+                <div class="col-3 name">{{name}}</div>
+                <div class="col-2 size">Size: {{size}}</div>
+                <div class="col-2 unit-price">Unit Price: {{unitPrice}}</div>
+                <div class="col-2 amount">Amount: {{amount}}</div>
+                <div class="col-3 total-price">Total Price: {{totalPrice}}</div>
+            </div>
+        </div>
+    {% endverbatim %}
+</script>
+
+<script id="pasta-salad" type="text/x-handlebars-template">
+    {% verbatim %}
+        <div class="detail item">
+            <div class="row">
+                <div class="col-3 name">{{name}}</div>
+                <div class="col-3 unit-price">Unit Price: {{unitPrice}}</div>
+                <div class="col-3 amount">Amount: {{amount}}</div>
+                <div class="col-3 total-price">Total Price: {{totalPrice}}</div>
+            </div>
+        </div>
+    {% endverbatim %}
+</script>
+
+{% endblock %}
+
+{% block dropdown-account %} 
+<li class="nav-item dropdown">
+    <a href="" id="dropdownAccountButton" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {% if logged_in %}
+            {{ user.username }}
+        {% else %}
+            Account
+        {% endif %}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownAccountButton">
+        {% if logged_in %}
+            <a href="{% url 'logout' %}" class="dropdown-item logout-item">Logout</a>
+        {% else %}
+            <a href="#accountModal" data-toggle="modal" class="dropdown-item signin-item">Login</a>
+            <a href="#accountModal" data-toggle="modal" class="dropdown-item signup-item">Registration</a>
+        {% endif %}
+    </div>
+</li>
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="container">
+        <div class="row cart-header">
+            <div class="col-lg-12 px-3">
+                <h4>Cart</h4>
+            </div>
+        </div>
+        <div class="row cart-body">
+            <div class="col-lg-9 list-items px-3">
+                <div class="d-flex flex-column">
+                    <div class="regular-items mb-4" style="display: none;">
+                        <h5>Regular pizza</h5>
+                        
+                    </div>
+                    <div class="sicilian-items mb-4" style="display: none;">
+                        <h5>Sicilian pizza</h5>
+                    </div>
+                    <div class="sub-items mb-4" style="display: none;">
+                        <h5>Sub</h5>
+                    </div>
+                    <div class="pasta-items mb-4" style="display: none;">
+                        <h5>Pasta</h5>
+                    </div>
+                    <div class="salad-items mb-4" style="display: none;">
+                        <h5>Salad</h5>
+                    </div>
+                    <div class="dinner-platter-items" style="display: none;">
+                        <h5>Dinner platter</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 payment-box mt-5 p-0">
+                <div class="border border-secondary p-2">
+                    <div class="total-order d-flex justify-content-between py-2">
+                    <div>Total Order:</div>
+                    <div class="num"></div>
+                </div>
+                <div class="tax d-flex justify-content-between py-2">
+                    <div>Tax:</div>
+                    <div class="num">0</div>
+                </div>
+                <div class="total d-flex justify-content-between py-2">
+                    <div>Total Price: </div>
+                    <div class="num"></div>
+                </div>
+                </div>
+                <button class="btn btn-large btn-block btn-danger btn-checkout mt-3" data-toggle="modal" data-target="#accountModal">Proceed to Ordering</button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

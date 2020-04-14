@@ -1,0 +1,65 @@
+.hero {
+    height: 750px;
+    background: url('/static/orders/images/bg-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 90px;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: .5;
+}
+
+.hero-content {
+    height: 100%;
+    position: relative;
+}
+
+.center {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.sub-heading {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 30px;
+    color: #fac564;
+}
+
+.hero-content .center h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.hero-content .center p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: white;
+}
+
+.hero-content .center a {
+    cursor: pointer;
+    color: white;
+    border-radius: 0%;
+}
+
+.hero-content .center a:hover {
+    background: #fac564;
+    color: #000;
+    border: 1px solid #fac564;
+}

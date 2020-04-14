@@ -1,0 +1,128 @@
+#header-nav .navbar-nav .active .nav-link{
+    color: #fac564;
+}
+
+.info {
+    background: #000;
+    padding: 30px;
+}
+
+@media (min-width: 1200px) {
+    .info {
+        padding: 2% 5% 2% 12%;
+    }
+}
+
+.social {
+    flex-basis: 30%;
+    background-color: #fac564;
+}
+
+.info .icon {
+    width: 40px;
+    color: #fac564;
+}
+
+.info .text h3 {
+    font-size: 16px;
+    color: #fff;
+}
+
+.info .text p {
+    margin: 0;
+}
+
+.social-icon li{
+    display: inline;
+    margin-right: 20px;
+}
+
+.social-icon li a {
+    color: #fff;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.img {
+    background-image: url('/static/orders/images/about.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+@media (max-width: 768px) {
+    .img {
+        height: 300px;
+    }
+}
+
+.promo h2 {
+    font-size: 30px;
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    color: #fff;
+}
+
+.flaticon-pizza {
+    color: #fac564;
+}
+
+.heading-section h2 {
+    font-size: 30px;
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    color: #fff;
+}
+
+.hot-pizza {
+    padding: 7em 0;
+}
+
+.info-pizza {
+    flex-basis: 50%;
+}
+
+.info-pizza h3 {
+    font-size: 20px;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    color: #fff;
+}
+
+.img-pizza {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img-1 {
+    background-image: url('/static/orders/images/pizza-2.jpg');
+}
+
+.img-2 {
+    background-image: url('/static/orders/images/pizza-1.jpg');
+}
+
+.price span {
+    color: #fac564;
+    font-size: 16px;
+}
+
+.price a {
+    cursor: pointer;
+    color: white;
+    border-radius: 0%;
+}
+
+.price a:hover {
+    background: #fac564;
+    color: #000;
+    border: 1px solid #fac564;
+}
