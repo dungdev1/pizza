@@ -120,6 +120,8 @@ document.addEventListener('click', event => {
                 element.style.opacity = '1';
             });
 
+            toppingClickEvent();
+
             document.querySelector('#add-cart-btn').onclick = () => {
                 saveItem(item, toppingsChoosed);
             };
@@ -131,7 +133,7 @@ document.addEventListener('click', event => {
 });
 
 // Topping dialog event when choose topping
-setTimeout(() => {
+function toppingClickEvent() {
     document.querySelectorAll('#toppingDialog .topping a').forEach(element => {
         element.addEventListener('click', event => {
             console.log('ok');
@@ -163,7 +165,7 @@ setTimeout(() => {
             }
         });
     });
-}, 500);
+}
 
 
 function saveItem(item, toppings = []) {
