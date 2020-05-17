@@ -132,7 +132,8 @@
     </div>
     
     <script id="signin-form" type="text/x-handlebars-template">
-        <form id="loggin-form">
+        <form id="loggin-form" method="POST">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
                 <input name="username" type="text" class="form-control" id="username" required>
@@ -145,7 +146,8 @@
         </form>
     </script>
     <script id="signup-form" type="text/x-handlebars-template">
-        <form id="registration-form">
+        <form id="registration-form" method="POST">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
                 <input name="username" type="text" class="form-control" id="username" required>
